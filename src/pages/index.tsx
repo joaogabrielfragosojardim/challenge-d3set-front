@@ -91,6 +91,16 @@ export const Home = () => {
 
   return (
     <Box p="20px">
+      <Flex justifyContent="flex-end">
+        <Button
+          colorScheme="blue"
+          bgColor="blue.700"
+          color="white"
+          onClick={() => navigate(`/cadastro`)}
+        >
+          Cadastro
+        </Button>
+      </Flex>
       <Flex
         w="100%"
         h="100vh"
@@ -140,6 +150,12 @@ export const Home = () => {
                           onClick={() => navigate(`/pessoa/view/${item.id}`)}
                         >
                           <GrFormView />
+                        </Button>
+                        <Button
+                          bg="transparent"
+                          onClick={() => navigate(`/editar/${item.id}`)}
+                        >
+                          <GrEdit />
                         </Button>
                       </Flex>
                     </Td>

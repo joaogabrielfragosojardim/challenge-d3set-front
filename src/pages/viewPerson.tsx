@@ -46,6 +46,7 @@ export const ViewPerson = () => {
   return (
     <Box p="20px">
       <Button
+        colorScheme="blue"
         onClick={() => {
           navigate("/");
         }}

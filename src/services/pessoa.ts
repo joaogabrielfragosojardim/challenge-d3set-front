@@ -1,17 +1,36 @@
 import { api } from "./api";
 
-interface IPhones {
+export interface IPhones {
   phone: string;
   id: string;
 }
 
 export interface IData {
   name: string;
-  birthday: Date;
+  birthday: Date | string;
   id: string;
   phoneQuantity: number;
   phones: IPhones[];
 }
+
+export interface ICreatePessoa {
+  name: string;
+  birthday: Date;
+  phoneQuantity: number;
+  phones: string[];
+}
+
+export const createPessoa = async (payload: ICreatePessoa) => {
+  const { data } = await api.post("/pessoa", payload);
+
+  return data;
+};
+
+export const editPessoa = async (payload: IData) => {
+  const { data } = await api.put(`/pessoa/${payload.id}`, payload);
+
+  return data;
+};
 
 export const getPessoa: () => Promise<IData[]> = async () => {
   const { data } = await api.get("/pessoa");
